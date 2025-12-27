@@ -115,6 +115,30 @@ void display_icons(int icon) {
             u8g2.drawGlyph(115, 25, FULL_BATT);
             break;
 
+        case 3:                        // batteria telefono 4 tacche
+            u8g2.setFont(BATT_ICON_FONT);
+            u8g2.drawGlyph(115, 25, BATTERY_4);
+            break;            
+        
+        case 4:                        // batteria telefono metà
+            u8g2.setFont(BATT_ICON_FONT);
+            u8g2.drawGlyph(115, 25, BATTERY_MID);
+            break;
+
+        case 5:                        // batteria telefono 2 tacche
+            u8g2.setFont(BATT_ICON_FONT);
+            u8g2.drawGlyph(115, 25, BATTERY_2);
+            break;
+
+        case 6:                       // batteria telefono 1 tacca
+            u8g2.setFont(BATT_ICON_FONT);
+            u8g2.drawGlyph(115, 25, BATTERY_1);
+            break;
+
+        case 7:                       // batteria telefono charging
+            u8g2.setFont(BATT_ICON_FONT);
+            u8g2.drawGlyph(115, 25, BATTERY_CHARGING);
+            break;
     }
 }
 

@@ -8,6 +8,27 @@
 unsigned long last_display_update = 0;
 unsigned long last_time_update = 0;
 
+void display_battery() {
+  bool charging = is_battery_charging();
+  int batt_val = get_battery_val_int();
+
+  if (charging) {
+    display_icons(7);
+  } else {
+    if (batt_val >= 80 && batt_val <= 100) {
+      display_icons(2);
+    } else if (batt_val >= 60 && batt_val <= 79) {
+      display_icons(3);
+    } else if (batt_val >= 40 && batt_val <= 59) {
+      display_icons(4);
+    } else if (batt_val >= 20 && batt_val <= 39) {
+      display_icons(5);
+    } else {
+      display_icons(6);
+    }
+  }
+}
+
 void setup() {
   Serial.begin(9600);
 
@@ -18,6 +39,9 @@ void setup() {
 
   ble_time_init();
   Serial.println("[BLE] BLE Time Service initialized.");
+
+  battery_ble_init();
+  Serial.println("[BLE] BLE Battery Service initialized.");
 
   ble_start_advertising();
 
@@ -73,7 +97,8 @@ void loop() {
 
     if (get_current_state() == BLE_CONNECTED) {
       display_icons(1);
-      display_icons(2);
+      //display_icons(2);
+      display_battery();
       display_show_time_str(get_received_time(), get_received_date());
     } else {
       reverse_time_parse();

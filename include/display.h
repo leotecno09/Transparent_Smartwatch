@@ -11,6 +11,11 @@
 // icons
 #define BLUETOOTH_CONNECTED 74
 #define FULL_BATT 53
+#define BATTERY_CHARGING 54
+#define BATTERY_1 49
+#define BATTERY_2 50
+#define BATTERY_MID 51
+#define BATTERY_4 52
 
 void display_init();
 void display_show_time_str(const char*, const char*);

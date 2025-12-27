@@ -5,6 +5,7 @@
 #include <BLEServer.h>
 #include <BLEUtils.h>
 #include "ble_time_service.h"
+#include "ble_battery_service.h"
 
 void ble_init();
 BLEServer* get_ble_server();
